@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif; 
+            background-color: #ffffff; 
+        }
+        ul { list-style: none; }
+        a { text-decoration: none; color: #333; } 
+
+        header {
+            position: sticky; 
+            top: 0; 
+            z-index: 10;
+            width: 100%;
+            height: 58px; 
+            background-color: #ffffff; 
+            padding: 0 40px; 
+            border-bottom: 1px solid #eee; 
+        }
+        header::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .logo {
+            float: left; 
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 58px; 
+        }
+        nav {
+            float: right; 
+            height: 58px; 
+        }
+        nav li {
+            float: left; 
+            margin-left: 25px; 
+        }
+        nav a {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            line-height: 58px; 
+        }
+        nav li:nth-child(5) a { 
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .fixed-banner {
+            width: 100%;
+            height: 580px; 
+            overflow: hidden; 
+        }
+        .fixed-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            position: relative;
+            z-index: 5; 
+            background-color: #ffffff; 
+            padding-top: 50px;       
+            padding-bottom: 50px;    
+            padding-left: 40px;      
+            padding-right: 40px;     
+            border-radius: 8px 8px 0 0; 
+            margin-top: -50px; 
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+
+        .category-section {
+            margin-bottom: 180px; 
+            padding: 20px 0; 
+        }
+        
+        .section-title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            text-align: center; 
+            margin-bottom: 30px; 
+        }
+
+        .image-set {
+            display: flex; 
+            gap: 30px; 
+            justify-content: space-between;
+        }
+
+        .image-card {
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+        }
+
+        .image-box-3 {
+            width: 100%;
+            position: relative; 
+            padding-bottom: 100%; 
+            background-color: #cccccc; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            margin-bottom: 10px; 
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .image-box-3:hover {
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        }
+
+        .image-box-3 img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block; 
+        } 
+
+        .image-text {
+            font-size: 15px;
+            color: #333; 
+            font-weight: 500;
+        }
+
+        footer {
+            width: 100%;
+            padding: 3px 40px; 
+            background-color: #fcf9f9; 
+            border-top: 1px solid #eee; 
+            position: relative;
+            z-index: 5; 
+            text-align: center;
+        }
+        footer p {
+            font-size: 12px; 
+            color: #555;     
+            margin: 5px auto; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href='index.html'>Season's Floor</a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href='index2.spring.html'>Spring</a></li>
+                <li><a href='index3.summer.html'>Summer</a></li>
+                <li><a href='index4.autumn.html'>Autumn</a></li>
+                <li><a href='index5. winter.html'>Winter</a></li>
+                <li><a href='index6.recommend.html'>Recommend</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="fixed-banner">
+        <img src='img/추천.png'>
+    </div>
+
+
+    <main class="content-container">
+
+        <section class="category-section">
+            <h2 class="section-title">Activity</h2>
+            <div class="image-set">
+                
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/코나키나발루.png" alt="코타키나발루">
+                    </div>
+                    <div class="image-text">코타키나발루</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/두바이.png" alt="두바이">
+                    </div>
+                    <div class="image-text">두바이</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/뉴질랜드.png" alt="뉴질랜드">
+                    </div>
+                    <div class="image-text">뉴질랜드</div>
+                </a>
+                
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h2 class="section-title">Cuisine</h2>
+            <div class="image-set">
+                
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/홍콩.png">
+                    </div>
+                    <div class="image-text">홍콩</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/대만.png">
+                    </div>
+                    <div class="image-text">대만_타이베이</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/덴마크.png">
+                    </div>
+                    <div class="image-text">덴마크_코펜하겐</div>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">Healing</h2>
+            <div class="image-set">
+                
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/몰디브.png" alt="몰디브">
+                    </div>
+                    <div class="image-text">몰디브</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/산토리니.png">
+                    </div>
+                    <div class="image-text">그리스_산토리니</div>
+                </a>
+
+                <a href="#" class="image-card">
+                    <div class="image-box-3">
+                        <img src="img/호주.png">
+                    </div>
+                    <div class="image-text">호주_시드니/멜버른</div>
+                </a>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2025 Season's Floor.</p>
+    </footer>
+</body>
+</html>
