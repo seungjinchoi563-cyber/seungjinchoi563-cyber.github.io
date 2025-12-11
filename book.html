@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            color: #f1f1f1;
+            background: #000;
+            background-image: url("img/space-bg.png"); 
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        .clear { clear: both; }
+
+        .inner {
+            width: 100%;       
+            padding: 0 60px;   
+            margin: 0 auto;
+            position: relative;
+        }
+        header {
+            width: 100%; height: 80px; position: fixed;     
+            background: rgba(63, 62, 62, 0.6);
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header .inner { 
+            width: 1000px; 
+            height: 80px; 
+            margin: 0 auto; 
+            padding: 0; 
+        }
+        
+        #logo {
+            float: left; margin-top: 25px;
+            font-size: 16px; 
+            font-weight: 500; 
+            display: flex; align-items: center;
+            text-decoration: none; 
+            color: #b0b0b0;
+            transition: color 0.3s;
+        }
+        #logo img { height: 30px; margin-right: 10px; vertical-align: middle; }
+        #logo:hover { color: #fff; cursor: pointer; }
+        
+        #menus { float: right; margin-top: 30px; }
+        #menus li { display: inline-block; margin-left: 40px; font-size: 15px; color: #b0b0b0; font-weight: 500; transition: color 0.3s; }
+        
+        #menus li:hover { color: #fff; cursor: pointer; }
+        #menus li a.active {
+            color: #fff;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 6px; 
+            text-decoration-thickness: 1px;
+        }
+        #contents {
+            width: 100%;
+            padding-top: 240px; 
+            padding-bottom: 150px;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.3);
+            background-blend-mode: multiply;
+        }
+        .page_title {
+            width: 1000px; 
+            margin: 0 auto 200px auto; 
+            padding-left: 0;
+        }
+        .page_title h2 {
+            font-size: 64px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 30px;
+        }
+        .page_title p { 
+            color: #bbb; font-size: 16px; margin-top: 25px; font-weight: 400; 
+            line-height: 1.6; letter-spacing: 1.5px; 
+        }
+        .books_wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .book_section {
+            margin-bottom: 150px; 
+        }
+        .book_section:last-child { margin-bottom: 0; }
+        .section_label {
+            font-size: 18px; font-weight: 600; color: #e6e6e6; letter-spacing: 2px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px; margin-bottom: 40px;
+            display: inline-block; width: 100%;
+        }
+        .book_grid {
+            display: flex;
+            justify-content: space-between; 
+        }
+        .book_card {
+            width: 32%; 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 20px; 
+            padding: 30px 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            display: flex; flex-direction: column; 
+        }
+        .book_card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .book_title {
+            font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 25px;
+            height: 40px; 
+            line-height: 1.4;
+        }
+
+        .book_cover {
+            width: 100%; height: 220px; 
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 25px;
+        }
+        .book_cover img {
+            max-width: 100%; max-height: 100%; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+            transition: transform 0.3s;
+        }
+        .book_card:hover .book_cover img { transform: scale(1.05); }
+
+        .book_quote {
+            font-size: 13px; color: #eee; font-weight: 600; line-height: 1.6;
+            margin-bottom: 15px; font-style: italic;
+        }
+        
+        .book_desc {
+            font-size: 12px; color: #f0eded; line-height: 1.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        footer {
+            width: 100%; padding: 25px 0;
+            background: rgba(63, 62, 62, 0.6);
+            color: #777; font-size: 11px; line-height: 1.4;
+            position: relative; z-index: 20;
+        }
+        footer .inner { width: 1000px; margin: 0 auto; padding: 0; }
+        @media only screen and (max-width: 620px) {
+        .menu, .main, .right {
+            width: 100%;
+            float: none; 
+            margin-bottom: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="inner">
+            <a href="index.html" id="logo"><img src="img/logo.png"> SPACE Wanderer</a>
+            <nav id="menus">
+                <ul>
+                    <li><a href="History.html">History</a></li>
+                    <li><a href="Constellations.html">Constellations</a></li>
+                    <li><a href="Planets.html">Planets</a></li>
+                    <li><a href="Perspective.html">Perspective</a></li>
+                    <li><a href="books.html" class="active">Books</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contents">
+        <div class="page_title">
+            <h2>
+                Books:<br>
+                Explorer's Library
+            </h2>
+            <p>
+                입문자도, 탐험가도 즐길 수 있는 우주 도서 컬렉션.
+            </p>
+        </div>
+
+        <div class="books_wrap">
+            
+            <div class="book_section">
+                <span class="section_label">EASY</span>
+                <div class="book_grid">
+                    <div class="book_card">
+                        <div class="book_title">날마다 천체 물리 (닐 디그래스 타이슨)</div>
+                        <div class="book_cover">
+                            <img src="img/날마다 천체 물리.png" alt="Astrophysics for People in a Hurry">
+                        </div>
+                        <p class="book_quote">"우주를 알면 알수록, 나는 내가 덧없는 존재가 아니라 특별한 존재임을 느낀다."</p>
+                        <p class="book_desc">바쁜 현대인을 위해 우주의 핵심 지식만 쉽고 명쾌하게 담아낸 책</p>
+                    </div>
+                    <div class="book_card">
+                        <div class="book_title">코스모스 (칼 세이건)</div>
+                        <div class="book_cover">
+                            <img src="img/코스모스.png" alt="Cosmos">
+                        </div>
+                        <p class="book_quote">"우리는 모두 별의 먼지로 이루어져 있다."</p>
+                        <p class="book_desc">과학과 인문학을 넘나들며 우주의 역사와 생명의 본질을 읊조린, 노래하는 철학서</p>
+                    </div>
+                    <div class="book_card">
+                        <div class="book_title">떨림과 울림 (김상욱)</div>
+                        <div class="book_cover">
+                            <img src="img/떨림과 울림.png" alt="Tremor and Echo">
+                        </div>
+                        <p class="book_quote">"우주는 떨림이다. 빛은 전자기장의 떨림이고, 소리는 공기의 떨림이다."</p>
+                        <p class="book_desc">물리학자의 따뜻한 시선으로 우주의 법칙과 인간의 삶을 연결한 에세이</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book_section">
+                <span class="section_label">DEEP</span>
+                <div class="book_grid">
+                    <div class="book_card">
+                        <div class="book_title">시간의 역사 (스티븐 호킹)</div>
+                        <div class="book_cover">
+                            <img src="img/시간의 역사.png" alt="A Brief History of Time">
+                        </div>
+                        <p class="book_quote">"우리가 우주를 이해한다면, 그것은 신의 마음을 아는 것과 다름없을 것이다."</p>
+                        <p class="book_desc">블랙홀과 시간의 본질 등 우주의 가장 깊은 비밀을 파헤친 현대 물리학의 고전</p>
+                    </div>
+                    <div class="book_card">
+                        <div class="book_title">엘러건트 유니버스 (브라이언 그린)</div>
+                        <div class="book_cover">
+                            <img src="img/앨러건트 유니버스.png" alt="The Elegant Universe">
+                        </div>
+                        <p class="book_quote">"진리는 단순함 속에 숨어 있다. 우주의 가장 깊은 곳에는 우아한 질서가 존재한다."</p>
+                        <p class="book_desc">우주의 모든 것을 설명하는 '초끈 이론'을 가장 우아하고 명쾌하게 풀어낸 책</p>
+                    </div>
+                    <div class="book_card">
+                        <div class="book_title">창백한 푸른 점 (칼 세이건)</div>
+                        <div class="book_cover">
+                            <img src="img/창백한 푸른 점.png" alt="Pale Blue Dot">
+                        </div>
+                        <p class="book_quote">"저 작은 점을 보라. 저것이 우리다. 저것이 바로 우리 자신이다."</p>
+                        <p class="book_desc">보이저 1호가 찍은 지구 사진에서 시작된, 인류의 미래와 우주적 관점에 대한 성찰</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <p>SPACE WANDERER | 이용약관 | 개인정보처리방침 | FAQ</p>
+            <p>SPACE WANDERER 주소: (16038) 경기도 의왕시 계원대학로 66 (내손동) 계원예술대학교</p>
+            <p class="copyright">Management Login © 2025 SPACE WANDERER. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            color: #f1f1f1;
+            background: #000;
+            background-image: url("img/space-bg.png"); 
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        .clear { clear: both; }
+
+        .inner {
+            width: 100%;       
+            padding: 0 60px;   
+            margin: 0 auto;
+            position: relative;
+        }
+        header {
+            width: 100%; height: 80px; position: fixed;     
+            background: rgba(63, 62, 62, 0.6);
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header .inner { 
+            width: 1000px; 
+            height: 80px; 
+            margin: 0 auto; 
+            padding: 0; 
+        }
+        
+        #logo {
+            float: left; margin-top: 25px;
+            font-size: 16px; 
+            font-weight: 500; 
+            display: flex; align-items: center;
+            text-decoration: none; 
+            color: #b0b0b0;
+            transition: color 0.3s;
+        }
+        #logo img { height: 30px; margin-right: 10px; vertical-align: middle; }
+        #logo:hover { color: #fff; cursor: pointer; }
+        
+        #menus { float: right; margin-top: 30px; }
+        #menus li { display: inline-block; margin-left: 40px; font-size: 15px; color: #b0b0b0; font-weight: 500; transition: color 0.3s; }
+        
+        #menus li:hover { color: #fff; cursor: pointer; }
+
+        #menus li a.active {
+            color: #fff;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 6px; 
+            text-decoration-thickness: 1px;
+        }
+        #contents {
+            width: 100%;
+            padding-top: 240px; 
+            padding-bottom: 150px; 
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.3); 
+            background-blend-mode: multiply;
+        }
+        .page_title {
+            width: 1000px; 
+            margin: 0 auto 200px auto; 
+            padding-left: 0;
+        }
+        .page_title h2 {
+            font-size: 60px; font-weight: 700; line-height: 1.3; color: #fff; margin-bottom: 25px;
+        }
+        .page_title p { 
+            color: #bbb; font-size: 15px; margin-top: 25px; font-weight: 400; 
+            line-height: 1.8; letter-spacing: 1.5px;
+        }
+
+        .planets_wrap {
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px; 
+        }
+        .planet_box {
+            width: 600px; 
+            height: 280px; 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 20px;
+            padding: 20px; 
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            transition: transform 0.3s;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .planet_box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .planet_box.left {
+            align-self: flex-start; 
+            flex-direction: row;    
+            text-align: left;
+        }
+        .planet_box.right {
+            align-self: flex-end;   
+            flex-direction: row-reverse; 
+            text-align: right;
+        }
+        .p_img {
+            width: 220px; 
+            display: flex; justify-content: center; align-items: center; margin: 0; 
+        }
+        .p_img img {
+            width: 180px; height: 180px; object-fit: contain;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+            transition: transform 0.5s ease;
+        }
+        .p_text { width: 300px; }
+        .planet_box.saturn_card .p_img { width: 260px; }
+        .planet_box.saturn_card .p_img img { width: 260px; height: auto; }
+        .planet_box.saturn_card .p_text { width: 260px; }
+        
+        .planet_box:hover .p_img img { transform: scale(1.1) rotate(5deg); }
+        .p_name {
+            font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 20px; display: block;
+        }
+        .p_info li {
+            font-size: 14px; color: #ccc; margin-bottom: 8px; letter-spacing: 0.5px;
+        }
+        .label {
+            color: #888; margin-right: 5px; font-weight: 500;
+        }
+
+        footer {
+            width: 100%; padding: 25px 0;
+            background: rgba(63, 62, 62, 0.6);
+            color: #777; font-size: 11px; line-height: 1.4;
+            position: relative; z-index: 20;
+        }
+        footer .inner { width: 1000px; margin: 0 auto; padding: 0; }
+        @media only screen and (max-width: 620px) {
+        .menu, .main, .right {
+            width: 100%;
+            float: none; 
+            margin-bottom: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="inner">
+            <a href="index.html" id="logo"><img src="img/logo.png"> SPACE Wanderer</a>
+            <nav id="menus">
+                <ul>
+                    <li><a href="History.html">History</a></li>
+                    <li><a href="Constellations.html">Constellations</a></li>
+                    <li><a href="Planet.html" class="active">Planets</a></li>
+                    <li><a href="Perspective.html">Perspective</a></li>
+                    <li><a href="book.html">Books</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contents">
+        <div class="page_title">
+            <h2>
+                Planets:<br>
+                Meet Our Neighbors
+            </h2>
+            <p>
+                태양의 중력에 이끌려 8개의 행성이 완벽한 질서와 궤도를 돌고 있습니다.<br>
+                각기 다른 환경과 이야기를 가진 우리의 이웃들을 만나보세요.
+            </p>
+        </div>
+
+        <div class="planets_wrap">
+            
+            <div class="planet_box left">
+                <div class="p_img">
+                    <img src="img/planet_mercury.png" alt="Mercury">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Mercury</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 4,879 km</li>
+                        <li><span class="label">공전:</span> 88일</li>
+                        <li><span class="label">자전:</span> 59일</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box right">
+                <div class="p_img">
+                    <img src="img/planet_venus.png" alt="Venus">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Venus</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 12,104 km</li>
+                        <li><span class="label">공전:</span> 225일</li>
+                        <li><span class="label">자전:</span> 243일</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box left">
+                <div class="p_img">
+                    <img src="img/planet_earth.png" alt="Earth">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Earth</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 12,742 km</li>
+                        <li><span class="label">공전:</span> 365일</li>
+                        <li><span class="label">자전:</span> 24시간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box right">
+                <div class="p_img">
+                    <img src="img/planet_mars.png" alt="Mars">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Mars</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 6,779 km</li>
+                        <li><span class="label">공전:</span> 687일</li>
+                        <li><span class="label">자전:</span> 24.6시간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box left">
+                <div class="p_img">
+                    <img src="img/planet_jupiter.png" alt="Jupiter">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Jupiter</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 139,820 km</li>
+                        <li><span class="label">공전:</span> 11.9년</li>
+                        <li><span class="label">자전:</span> 9.9시간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box right saturn_card">
+                <div class="p_img">
+                    <img src="img/planet_saturn.png" alt="Saturn">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Saturn</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 116,460 km</li>
+                        <li><span class="label">공전:</span> 29.5년</li>
+                        <li><span class="label">자전:</span> 10.7시간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box left">
+                <div class="p_img">
+                    <img src="img/planet_uranus.png" alt="Uranus">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Uranus</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 50,724 km</li>
+                        <li><span class="label">공전:</span> 84년</li>
+                        <li><span class="label">자전:</span> 17.2시간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet_box right">
+                <div class="p_img">
+                    <img src="img/planet_neptune.png" alt="Neptune">
+                </div>
+                <div class="p_text">
+                    <span class="p_name">Neptune</span>
+                    <ul class="p_info">
+                        <li><span class="label">지름:</span> 49,244 km</li>
+                        <li><span class="label">공전:</span> 165년</li>
+                        <li><span class="label">자전:</span> 16.1시간</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <p>SPACE WANDERER | 이용약관 | 개인정보처리방침 | FAQ</p>
+            <p>SPACE WANDERER 주소: (16038) 경기도 의왕시 계원대학로 66 (내손동) 계원예술대학교</p>
+            <p class="copyright">Management Login © 2025 SPACE WANDERER. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

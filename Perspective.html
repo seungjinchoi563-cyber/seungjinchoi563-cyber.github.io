@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            color: #f1f1f1;
+            background: #000;
+            background-image: url("img/space-bg.png"); 
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        .clear { clear: both; }
+
+        .inner {
+            width: 100%;       
+            padding: 0 60px;   
+            margin: 0 auto;
+            position: relative;
+        }
+
+        header {
+            width: 100%; height: 80px; position: fixed;     
+            background: rgba(63, 62, 62, 0.6);
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header .inner { 
+            width: 1000px; 
+            height: 80px; 
+            margin: 0 auto; 
+            padding: 0; 
+        }
+        
+        #logo {
+            float: left; margin-top: 25px;
+            font-size: 16px; 
+            font-weight: 500; 
+            display: flex; align-items: center;
+            text-decoration: none; 
+            color: #b0b0b0;
+            transition: color 0.3s;
+        }
+        #logo img { height: 30px; margin-right: 10px; vertical-align: middle; }
+        #logo:hover { color: #fff; cursor: pointer; }
+        
+        #menus { float: right; margin-top: 30px; }
+        #menus li { display: inline-block; margin-left: 40px; font-size: 15px; color: #b0b0b0; font-weight: 500; transition: color 0.3s; }
+        
+        #menus li:hover { color: #fff; cursor: pointer; }
+
+        #menus li a.active {
+            color: #fff;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 6px; 
+            text-decoration-thickness: 1px;
+        }
+
+        #contents {
+            width: 100%;
+            padding-top: 240px; 
+            padding-bottom: 200px;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.3);
+            background-blend-mode: multiply;
+        }
+        .page_title {
+            width: 1000px; 
+            margin: 0 auto 200px auto; 
+            padding-left: 0;
+        }
+        .page_title h2 {
+            font-size: 64px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 30px;
+        }
+        .page_title p { 
+            color: #bbb; font-size: 16px; margin-top: 25px; font-weight: 400; line-height: 1.6;
+        }
+        .perspective_wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .per_section {
+            margin-bottom: 200px; 
+        }
+        .per_section:last-child { margin-bottom: 0; }
+
+        .section_title {
+            font-size: 24px; font-weight: 600; color: #eee; margin-bottom: 40px; opacity: 0.9;
+        }
+
+        .per_row {
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        .glass_box_lg {
+            width: 62%; 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 20px; padding: 30px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .glass_box_lg img {
+            width: 100%; height: auto; display: block; border-radius: 10px; opacity: 1;
+        }
+        .text_container { width: 32%; }
+        
+        .quote_title {
+            font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.4;
+        }
+        .quote_title::before { content: "“"; margin-right: 5px; color: #888; }
+        .quote_title::after { content: "”"; margin-left: 5px; color: #888; }
+
+        .quote_desc {
+            font-size: 15px; color: #aaa; line-height: 1.8; word-break: keep-all;
+        }
+
+        .hubble_img_group {
+            width: 62%; display: flex; justify-content: space-between;
+        }
+        .glass_box_sm {
+            width: 48%; aspect-ratio: 1 / 1; 
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px; padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .glass_box_sm img {
+            width: 100%; height: auto; border-radius: 10px; opacity: 1;
+        }
+
+        footer {
+            width: 100%; padding: 25px 0;
+            background: rgba(63, 62, 62, 0.6);
+            color: #777; font-size: 11px; line-height: 1.4;
+            position: relative; z-index: 20;
+        }
+        footer .inner { width: 1000px; margin: 0 auto; padding: 0; }
+        @media only screen and (max-width: 620px) {
+        .menu, .main, .right {
+            width: 100%;
+            float: none; 
+            margin-bottom: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="inner">
+            <a href="index.html" id="logo"><img src="img/logo.png"> SPACE Wanderer</a>
+            <nav id="menus">
+                <ul>
+                    <li><a href="History.html">History</a></li>
+                    <li><a href="Constellations.html">Constellations</a></li>
+                    <li><a href="Planet.html">Planets</a></li>
+                    <li><a href="Perspective.html" class="active">Perspective</a></li>
+                    <li><a href="book.html">Books</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contents">
+        <div class="page_title">
+            <h2>
+                Perspective:<br>
+                Man & Space
+            </h2>
+            <p>
+                태양의 중력에 이끌려 8개의 행성이 완벽한 질서와 궤도를 돌고 있습니다.<br>
+                우주를 바라보는 인류의 시선은 어떻게 확장되어 왔을까요?
+            </p>
+        </div>
+
+        <div class="perspective_wrap">
+            
+            <div class="per_section">
+                <div class="section_title">코페르니쿠스 혁명 (The Copernican Revolution)</div>
+                <div class="per_row">
+                    <div class="glass_box_lg">
+                        <img src="img/코페르니쿠스.png" alt="Copernicus Model">
+                    </div>
+                    <div class="text_container">
+                        <div class="quote_title">우주의 중심이 바뀌다</div>
+                        <p class="quote_desc">
+                            지구가 우주의 주연공이라 믿었던 오랜 착각에서 깨어난 순간입니다.
+                            우리는 태양 주위를 도는 작은 행성일 뿐이라는 사실을 받아들이며, 인류의 시야는 태양계 전체로 확장되었습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="per_section">
+                <div class="section_title">허블의 법칙 (Hubble's Law)</div>
+                <div class="per_row">
+                    <div class="text_container">
+                        <div class="quote_title">우주는 멈춰있지 않다</div>
+                        <p class="quote_desc">
+                            우주는 정지해 있을 것이라는 고정관념이 깨졌습니다. 멀리 있는 은하일수록 더 빠르게 멀어진다는 사실을 통해, '우주는 지금 이 순간에도 계속 커지고 있다(팽창)'는 진실을 발견했습니다.
+                        </p>
+                    </div>
+                    <div class="hubble_img_group">
+                        <div class="glass_box_sm">
+                            <img src="img/허블법칙.png" alt="Hubble Law Graph">
+                        </div>
+                        <div class="glass_box_sm">
+                            <img src="img/허블 상수.png" alt="Hubble Constant Star Map">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="per_section">
+                <div class="section_title">우주 배경 복사(CMB) 발견</div>
+                <div class="per_row">
+                    <div class="glass_box_lg">
+                        <img src="img/cmb.png" alt="CMB Discovery">
+                    </div>
+                    <div class="text_container">
+                        <div class="quote_title">태초의 흔적을 줍다</div>
+                        <p class="quote_desc">
+                            우주 탄생(빅뱅)의 가장 강력한 증거가 우연히 발견되었습니다. 대폭발 직후 퍼져나간 뜨거운 열기가 식어 우주 전역에 희미하게 남아있음을 확인함으로써, 우리는 우주의 기원을 증명해 냈습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <p>SPACE WANDERER | 이용약관 | 개인정보처리방침 | FAQ</p>
+            <p>SPACE WANDERER 주소: (16038) 경기도 의왕시 계원대학로 66 (내손동) 계원예술대학교</p>
+            <p class="copyright">Management Login © 2025 SPACE WANDERER. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
